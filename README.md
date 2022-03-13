@@ -11,3 +11,6 @@
 
 - With example package.json script
 - npm run debug --filePath=src/test.ts
+
+- npm run debug-brk --filePath=src/test.ts
+- for breakpoint debugging

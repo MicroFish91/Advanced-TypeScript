@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "debug": "node --inspect-brk -r ts-node/register %npm_config_filePath%",
+    "debug-brk": "node --inspect -r ts-node/register %npm_config_filePath%",
     "nodemon-watch": "./node_modules/.bin/nodemon --watch ./src/app.ts -e ts --exec node --inspect-brk -r ts-node/register ./src/app.ts"
   },
   "repository": {
