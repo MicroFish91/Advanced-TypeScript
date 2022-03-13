@@ -1,5 +1,7 @@
 // https://www.typescriptlang.org/docs/handbook/utility-types.html
 
+import { profile } from "console";
+
 // * 1. Partial<Type>
 // Constructs a type with all properties of Type set to optional.
 interface Starship {
@@ -89,10 +91,35 @@ type T0 = ReturnType<() => string>;
 // * 11. InstanceType<Type>
 // Constructs a type consisting of the instance type of a constructor function in Type.
 
-class C {
-  x = 0;
-  y = 0;
+// Demo in combination with mixins
+class Car {
+  constructor(public name: string) {}
 }
 
-// C
-type C0 = InstanceType<typeof C>;
+class User {
+  constructor(public name: string, public age: number) {}
+}
+
+type Constructor = new (...args: any[]) => {};
+
+function deletable<Baseclass extends Constructor>(Base: Baseclass) {
+  return class extends Base {
+    deleteable: boolean;
+    delete() {}
+  };
+}
+
+const DeletableUser = deletable(User);
+const DeletableCar = deletable(Car);
+
+type DeletableUserInstance = InstanceType<typeof DeletableUser>;
+type DeletableCarInstance = InstanceType<typeof DeletableCar>;
+
+class Profile {
+  user: DeletableUserInstance;
+  car: DeletableCarInstance;
+}
+
+const prof = new Profile();
+prof.user = new DeletableUser("Joe", 30);
+prof.car = new DeletableCar("Ferrari");

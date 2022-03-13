@@ -1,7 +1,7 @@
 ## Debugger
 
 - FYI: node --inspect ./src/app.js => Opens up a socket on port 9229 for the debugger to listen on
-- node --inspect-brk ./src/app.js
+- node --inspect-brk ./src/app.js => attaches debugger to start of the file
 
 - Create launch protocol for debugger launch.json
 
