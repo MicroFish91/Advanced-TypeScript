@@ -19,6 +19,8 @@ console.log(st2Getter());
 st2Setter("Yo");
 console.log(st2Getter());
 
+// ---------------------------------------------
+
 interface Rank<T> {
   item: T;
   rank: number;

@@ -5,6 +5,8 @@ function printIngredient(quantity: string, ingredient: string, extra?: string) {
 printIngredient("1C", "Flour");
 printIngredient("1C", "Sugar", "something more");
 
+// ------------------------------------
+
 interface User {
   id: string;
   info?: {
@@ -24,6 +26,8 @@ function getEmailEasy(user: User): string {
   // “fall back” to a default value when dealing with null or undefined
   return user?.info?.email ?? "";
 }
+
+// ----------------------------------
 
 function addWithCallback(x: number, y: number, callback?: () => void) {
   console.log([x, y]);
