@@ -1,3 +1,5 @@
+export = {};
+
 interface MyUser {
   name: string;
   id: string;
@@ -14,7 +16,7 @@ interface MyUser {
 
 type MyUserRequired = Required<MyUser>;
 
-const merge2 = (user: MyUser, completeOverride: MyUserRequired): MyUser => {
+const merge = (user: MyUser, completeOverride: MyUserRequired): MyUser => {
   return {
     ...user,
     ...completeOverride,
@@ -22,7 +24,7 @@ const merge2 = (user: MyUser, completeOverride: MyUserRequired): MyUser => {
 };
 
 console.log(
-  merge2(
+  merge(
     {
       name: "Matt",
       id: "mwf220",
